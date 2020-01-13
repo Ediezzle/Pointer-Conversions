@@ -4,9 +4,13 @@ namespace PointerConversions
 {
     class Program
     {
-        static void Main(string[] args)
+        //C# doesn't allow conversion between pointer types and objects,i.e no boxing and un-boxing. It however supports conversions between the different pointer types and pointer types and integral types.
+        unsafe static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            char c = 'R';
+            char* pc = &c;
+            void* pv = pc; // Implicit conversion  
+            int* pi = (int*)pv; // Explicit conversion using casting operator  
         }
     }
 }
